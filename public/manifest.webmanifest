@@ -1,0 +1,16 @@
+{
+  "name": "Daymark Planner",
+  "short_name": "Daymark",
+  "description": "Offline-first daily planner and task manager.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8f5",
+  "theme_color": "#315c47",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}
