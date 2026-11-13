@@ -9,18 +9,9 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 )
 
-// Автоматически очищаем старый Service Worker, чтобы не было кэша
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then((registrations) => {
-    for (const registration of registrations) {
-      registration.unregister();
-    }
+// Register the service worker so the app opens without internet.
+if ('serviceWorker' in navigator && import.meta.env.PROD) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
   });
-  if ('caches' in window) {
-    caches.keys().then((names) => {
-      for (const name of names) {
-        caches.delete(name);
-      }
-    });
-  }
 }
